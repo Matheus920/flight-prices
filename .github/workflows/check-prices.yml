@@ -10,6 +10,9 @@ env:
   TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
   PYTHONPATH: src
 
+permissions:
+  contents: write
+
 jobs:
   check-prices:
     runs-on: ubuntu-latest
