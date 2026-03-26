@@ -14,6 +14,12 @@ MAX_RETRIES = 3
 RETRY_DELAY = 5  # seconds
 
 
+class BRSearchFlights(SearchFlights):
+    """SearchFlights with BRL currency forced via locale params."""
+
+    BASE_URL = SearchFlights.BASE_URL + "?hl=pt-BR&gl=BR&curr=BRL"
+
+
 def fetch_price(flight_config: dict) -> dict | None:
     """Fetch the round-trip price for a specific Azul flight configuration.
 
@@ -43,7 +49,7 @@ def fetch_price(flight_config: dict) -> dict | None:
     results = None
     for attempt in range(MAX_RETRIES):
         try:
-            client = SearchFlights()
+            client = BRSearchFlights()
             results = client.search(filters, top_n=5)
             if results:
                 break
