@@ -5,7 +5,6 @@ description = "Monitor Azul flight prices VCP-MAD"
 authors = [
     {name = "Matheus920"}
 ]
-readme = "README.md"
 requires-python = "^3.12"
 dependencies = [
     "requests (>=2.33.0,<3.0.0)",
